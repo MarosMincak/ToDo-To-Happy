@@ -1,0 +1,87 @@
+main{
+    width: 66.666667%;
+    border-left: 2px solid black;
+}
+
+.add-new{
+    display: flex;
+    justify-content: flex-end;
+}
+
+button,a , input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.add-new a{
+    font-size: 1.5rem;
+    border-radius: 0.375rem;
+    color: #e8e8e8;
+    padding: 0.215rem 0.575rem 0.425rem 0.5rem;
+    position: relative;
+    bottom: 0.275rem;
+    right: -0.275rem;
+}
+
+.add-new a:hover,
+.add-new a:active{
+    background: rgb(55, 65, 81);
+}
+
+h1.today{
+    color: rgb(var(--color-today));
+}
+
+h1.scheduled{
+    color: rgb(var(--color-scheduled));
+    display: none;
+}
+
+h1.all{
+    color: rgb(var(--color-all-darker));
+    display: none;
+}
+
+h1.flagged{
+    color: rgb(var(--color-flagged));
+    display: none;
+}
+
+/* TODOS */
+.todos{
+    padding-inline-start: 0px
+}
+
+.todos li{
+    display: flex;
+}
+
+.todos p{
+    border-bottom: 1px solid rgb(55, 65, 81);
+    flex-grow: 1;
+    margin-block-start: 0.2em;
+}
+
+
+.todos svg{
+    flex: none;
+    height: 2rem;
+    width: 2rem;
+
+    stroke: rgb(28, 34, 43);
+    stroke-width: 1;
+
+    fill: rgb(55, 65, 81);
+
+    cursor: pointer;
+}
+
+.todos svg:hover,
+.todos svg:active {
+    fill: rgb(251, 191, 36);
+}

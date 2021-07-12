@@ -1,0 +1,161 @@
+aside{
+    background: rgb(75, 85, 99);
+    width: 33.33333%;
+}
+
+.controls{
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.controls button{
+    width: 1rem;
+    height: 1rem;
+    background: yellow;
+    border-radius: 1rem;
+    margin: 0.25rem;
+    border: 1px solid rgba(0,0,0,0.6);
+}
+
+/* Close */
+.controls .close{
+    background: rgb(248, 113, 113);
+}
+.controls .close:hover,
+.controls .close:active{
+    background: rgb(239, 68, 68);
+}
+
+/* Minimize */
+.controls .minimize{
+    background: rgb(252, 211, 77);
+}
+.controls .minimize:hover,
+.controls .minimize:active{
+    background: rgb(245, 158, 11);
+}
+
+/* Maximize */
+.controls .maximize{
+    background: rgb(52, 211, 153);
+}
+.controls .maximize:hover,
+.controls .maximize:active{
+    background: rgb(16, 185, 129);
+}
+
+/* Form Search */
+input {
+    color: white;
+    font-weight: bold;
+
+    border: none;
+    border-top: 1px solid rgb(55, 65, 81);
+    border-left: 1px solid rgb(55, 65, 81);
+
+    background: rgba(255,255, 255, 0.4);
+    border-radius: 0.375rem;
+
+    width: 100%;
+    padding: 0.5rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input::placeholder{
+    color: white;
+    font-weight: normal;
+}
+
+/* NAVIGATION */
+nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+nav a{
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+
+h1{
+    font-size: 2.25rem;
+    font-family: "Arial Rounded MT Bold";
+    margin: 0rem;
+    margin-bottom: 1.1725rem;
+}
+
+nav .today:hover,
+nav .today:active{
+    background: rgb(var(--color-today));
+}
+
+nav .scheduled:hover,
+nav .scheduled:active{
+    background: rgb(var(--color-scheduled));
+}
+
+nav .all:hover,
+nav .all:active{
+    background: rgb(var(--color-all));
+}
+
+nav .flagged:hover,
+nav .flagged:active{
+    background: rgb(var(--color-flagged));
+}
+
+/* NAV ICONS */
+
+nav p{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+nav svg{
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 2.25rem;
+
+    stroke: white;
+    fill: white;
+    border: 1px solid #c4c4c4;
+
+    padding: 0.5rem;
+    margin-bottom: 0.375rem;
+}
+
+.today svg{
+    background-color: rgb(var(--color-today));
+}
+
+.scheduled svg{
+    background-color: rgb(var(--color-scheduled));
+}
+
+.all svg{
+    background-color: rgb(var(--color-all));
+}
+
+.flagged svg{
+    background-color: rgb(var(--color-flagged));
+}
+
+nav span{
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}
+
+.search{
+    margin-bottom: 1rem;
+}
