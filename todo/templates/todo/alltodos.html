@@ -11,11 +11,10 @@
                     <p>
                         {% if todo.important %} <b> {{ todo.title }} </b> {% else %} {{ todo.title }} {% endif %}
                         {% if todo.memo %} - {{ todo.memo }} {% endif %}
-                        {{ todo.datecompleted|date:'M j Y H:i' }}
                     </p>
-
                 </li>
             </a>
         {% endfor %}
     </ol>
+
 {% endblock %}

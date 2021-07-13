@@ -1,7 +1,7 @@
 {% extends 'todo/base.html' %}
 
 {% block content %}
-    <ol class="todos">
+    <ol class="todos" id="current-base-output">
         {% for todo in todos %}
             <a href="{% url 'viewtodo' todo.id %}">
                 <li>
@@ -15,6 +15,10 @@
                 </li>
             </a>
         {% endfor %}
+    </ol>
+
+    <ol class="todos" id="current-output">
+
     </ol>
 
 {% endblock %}

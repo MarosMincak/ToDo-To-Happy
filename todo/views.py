@@ -7,6 +7,8 @@ from .forms import TodoForm
 from .models import Todo
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+import json
+from django.http import JsonResponse
 
 def home(request):
     return render(request, 'todo/home.html')
@@ -66,7 +68,7 @@ def viewtodo(request, todo_pk):
 @login_required
 def createtodo(request):
     if request.method == 'GET':
-        return render(request, 'todo/currenttodos.html', {'form': TodoForm()})
+        return render(request, 'todo/createtodo.html', {'form': TodoForm()})
     else:
         try:
             form = TodoForm(request.POST)
@@ -74,7 +76,7 @@ def createtodo(request):
             newtodo.user = request.user
             newtodo.save()
         except ValueError:
-            return render(request, 'todo/currenttodos.html', {'form': TodoForm(), 'error': 'You cheatin!!'})
+            return render(request, 'todo/createtodo.html', {'form': TodoForm(), 'error': 'You cheatin!!'})
     return redirect('currenttodos')
 
 @login_required
@@ -84,6 +86,11 @@ def completetodo(request, todo_pk):
         todo.datecompleted = timezone.now()
         todo.save()
         return redirect('currenttodos')
+
+@login_required
+def alltodos(request):
+    todos = Todo.objects.filter(user=request.user).order_by('datecompleted')
+    return render(request, 'todo/alltodos.html', {'todos': todos})
 
 @login_required
 def deletetodo(request, todo_pk):
@@ -96,3 +103,11 @@ def deletetodo(request, todo_pk):
 def completedtodos(request):
     todos = Todo.objects.filter(user=request.user, datecompleted__isnull=False).order_by('-datecompleted')
     return render(request, 'todo/completedtodos.html', {'todos': todos})
+
+def search_current(request):
+    if request.method == 'POST':
+        search_str = json.loads(request.body).get('searchText')
+        todos = Todo.objects.filter(user=request.user, title__icontains=search_str) | Todo.objects.filter(
+            user=request.user, memo__icontains=search_str)
+        data = todos.values()
+        return JsonResponse(list(data), safe=False)

@@ -4,7 +4,7 @@
     <h1>Create</h1>
     <h2>{{ error }}</h2>
 
-    <form method="POST">
+    <form method="POST" class="updateSave">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save</button>

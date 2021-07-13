@@ -1,6 +1,7 @@
 aside{
     background: rgb(75, 85, 99);
     width: 33.33333%;
+    position: relative;
 }
 
 .controls{
@@ -58,6 +59,7 @@ input {
 
     width: 100%;
     padding: 0.5rem;
+    margin-bottom: 1em;
 }
 
 input:focus,
@@ -94,14 +96,14 @@ h1{
     margin-bottom: 1.1725rem;
 }
 
-nav .today:hover,
-nav .today:active{
-    background: rgb(var(--color-today));
+nav .current:hover,
+nav .current:active{
+    background: rgb(var(--color-current));
 }
 
-nav .scheduled:hover,
-nav .scheduled:active{
-    background: rgb(var(--color-scheduled));
+nav .completed:hover,
+nav .completed:active{
+    background: rgb(var(--color-completed));
 }
 
 nav .all:hover,
@@ -135,12 +137,12 @@ nav svg{
     margin-bottom: 0.375rem;
 }
 
-.today svg{
-    background-color: rgb(var(--color-today));
+.current svg{
+    background-color: rgb(var(--color-current));
 }
 
-.scheduled svg{
-    background-color: rgb(var(--color-scheduled));
+.completed svg{
+    background-color: rgb(var(--color-completed));
 }
 
 .all svg{
@@ -151,11 +153,22 @@ nav svg{
     background-color: rgb(var(--color-flagged));
 }
 
-nav span{
-    font-size: 1.5rem;
-    line-height: 2.25rem;
+.logout{
+    position: absolute;
+    bottom: 10px;
+    color: rgb(var(--color-all));
 }
 
-.search{
-    margin-bottom: 1rem;
+#id_memo{
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-top: 1px solid rgb(55, 65, 81);
+    border-left: 1px solid rgb(55, 65, 81);
+    background: rgba(255,255, 255, 0.4);
+    border-radius: 0.375rem;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1em;
 }
+
